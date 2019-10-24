@@ -3,8 +3,11 @@ require 'yaml'
 def directors_database
 	rot13 = -> (s) { s.tr('A-Za-z', 'N-ZA-Mn-za-m') }
   @_db ||= YAML.load(rot13.call(File.open("directors_db").read.to_s))
+require 'directors_database'
+require 'pp'
+
+def pretty_print_nds(nds)
+  pp nds
   
 end
 
-require 'pp'
-vm = [[[{:name=>"Vanilla Cookies", :price=>3}, {:name=>"Pistachio Cookies", :price=>3},
